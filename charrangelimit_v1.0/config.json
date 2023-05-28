@@ -1,0 +1,24 @@
+{
+    "name": "Char Range Limit",
+    "namespace": "Huashan\\ExternalModule",
+    "description": "Sets the minimum and maximum numbers of characters that can be entered into a Text field or Notes field.",
+    "permissions": [
+        "redcap_every_page_top"
+    ],
+    "authors": [
+        {
+            "name": "Congjin LIU",
+            "email": "liucongjin@fudan.edu.cn",
+            "institution": "Huashan Hospital of Fudan University，复旦大学附属华山医院"
+        },
+        {
+            "name": "Cynthia Xing",
+            "email": "yajiao.xing@nmcid.org.cn",
+            "institution": "Huashan Hospital of Fudan University，复旦大学附属华山医院"
+        }
+    ],
+    "compatibility": {
+        "redcap-version-min": "8.0.3"
+    }
+    
+}
