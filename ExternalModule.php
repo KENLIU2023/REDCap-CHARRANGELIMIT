@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Provides ExternalModule class for Image Map.
- */
 
 namespace Huashan\ExternalModule;
 
@@ -21,7 +17,7 @@ class ExternalModule extends AbstractExternalModule {
      */
     function redcap_every_page_top($project_id) {
         if (in_array(PAGE,array('ProjectSetup/index.php','Design/online_designer.php')) && $project_id) {
-            echo "<script type='text/javascript' src='../../modules/charrangelimit_v1.0/js/helper.js?V=9'></script>";
+            echo "<script type='text/javascript' src='../../modules/charrangelimit_v1.0/js/helper.js?'></script>";
            // $this->includeJs('js/helper.js');
         }    
         if (!in_array(PAGE, array('DataEntry/index.php', 'surveys/index.php', 'Surveys/theme_view.php'))) {
@@ -41,7 +37,7 @@ class ExternalModule extends AbstractExternalModule {
         $settings = array();
         // Loop through action tags
         $instrument = $_GET['page'];    // This is a bit of a hack, but in surveys this is set before the every_page_top hook is called
-        echo "<script type='text/javascript' src='../../modules/charrangelimit_v1.0/js/charrangelimit.js'></script>";
+        echo "<script type='text/javascript' src='../../modules/charrangelimit_v1.0/js/charrangelimit.js?'></script>";
         foreach (array_keys($Proj->forms[$instrument]['fields']) as $field_name) {
             $field_info = $Proj->metadata[$field_name];
 
@@ -57,3 +53,4 @@ class ExternalModule extends AbstractExternalModule {
     }
    
 }
+?>
