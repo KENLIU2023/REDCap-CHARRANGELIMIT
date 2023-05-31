@@ -47,7 +47,7 @@ class ExternalModule extends AbstractExternalModule {
             $rangeArray = explode('-',$range);
             if(is_numeric($rangeArray[0])&&is_numeric($rangeArray[1])&&$rangeArray[0]>0&&$rangeArray[1]>0&&(int)$rangeArray[0]<=(int)$rangeArray[1]){
                 print  "<script type='text/javascript'>
-                $(function(){char_range_limit('$field_name', ".(int)$rangeArray[0].", ".(int)$rangeArray[1].", 'Please enter<b style=\"color:red\">".($rangeArray[0]==$rangeArray[1]?$rangeArray[0]:$rangeArray[0]."~".$rangeArray[1])."</b>characters'); });</script>";
+                $(function(){CharRangeLimitModule.char_range_limit('$field_name', ".(int)$rangeArray[0].", ".(int)$rangeArray[1].", 'Please enter<b style=\"color:red\">".($rangeArray[0]==$rangeArray[1]?$rangeArray[0]:$rangeArray[0]."~".$rangeArray[1])."</b>characters'); });</script>";
             }
         }
     }
