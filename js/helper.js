@@ -1,28 +1,19 @@
 $(document).ready(function() {
-    // Checking if field annotation is present on this page.
-    if ($('#div_field_annotation').length === 0) {
-        if($('div[aria-describedby="action_tag_explain_popup"]').length===1){
-           var $popup1=$('div[aria-describedby="action_tag_explain_popup"]');
-        }else{
-            return false;
-        }
-    }
-
     $('body').on('dialogopen', function(event, ui) {
         var $popup = $(event.target);
         if ($popup.prop('id') !== 'action_tag_explain_popup') {
+            // That's not the popup we are looking for...
+            $popup1 = $('div[aria-describedby=\"action_tag_explain_popup\"]');
             if($popup1){
                 $popup=$popup1;
-                
             }
             else{
                 return false;
-                
             }
         }
 
         var isDefaultLabelColumn = function() {
-            return $(this).text() === '@CALCDATE';
+            return $(this).text() === '@CHARLIMIT';
         }
 
         var $default_action_tag = $popup.find('td').filter(isDefaultLabelColumn).parent();
@@ -41,7 +32,7 @@ $(document).ready(function() {
         var $button = $cols.find('button');
         $cols.eq(1).css('color','green');
         // Column 1: updating button behavior.
-        $button.attr('onclick', $button.attr('onclick').replace('@CALCDATE', tag_name));
+        $button.attr('onclick', $button.attr('onclick').replace('@CHARLIMIT', tag_name));
         $button.css({'background':'green','border':'1px solid green'});
 
         // Columns 2: updating action tag label.
