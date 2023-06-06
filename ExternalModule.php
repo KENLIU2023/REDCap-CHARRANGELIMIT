@@ -17,8 +17,7 @@ class ExternalModule extends AbstractExternalModule {
      */
     function redcap_every_page_top($project_id) {
         if (in_array(PAGE,array('ProjectSetup/index.php','Design/online_designer.php')) && $project_id) {
-            echo "<script type='text/javascript' src='../../modules/charrangelimit_v1.0/js/helper.js?'></script>";
-           // $this->includeJs('js/helper.js');
+             echo "<script type='text/javascript' src='".$this->getUrl('js/helper.js')."'></script>";
         }    
         if (!in_array(PAGE, array('DataEntry/index.php', 'surveys/index.php', 'Surveys/theme_view.php'))) {
             return;
@@ -33,14 +32,11 @@ class ExternalModule extends AbstractExternalModule {
         }
 
         global $Proj;
-       // var_dump($Proj);
         $settings = array();
-        // Loop through action tags
         $instrument = $_GET['page'];    // This is a bit of a hack, but in surveys this is set before the every_page_top hook is called
-        echo "<script type='text/javascript' src='../../modules/charrangelimit_v1.0/js/charrangelimit.js?'></script>";
+        echo "<script type='text/javascript' src='".$this->getUrl('js/charrangelimit.js')."'></script>";
         foreach (array_keys($Proj->forms[$instrument]['fields']) as $field_name) {
             $field_info = $Proj->metadata[$field_name];
-
             if (!$range = Form::getValueInActionTag($field_info['misc'], $this->tag)) {
                 continue;
             }
